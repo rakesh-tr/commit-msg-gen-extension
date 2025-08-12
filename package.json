@@ -3,7 +3,7 @@
   "displayName": "Commit Message Generator",
   "description": "Generate commit messages from git diff using an OpenAI-compatible API",
   "version": "0.0.1",
-  "publisher": "rakesh-tr",
+  "publisher": "Rakesh-tr",
   "engines": {
     "vscode": "^1.85.0"
   },
