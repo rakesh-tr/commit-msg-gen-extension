@@ -1,0 +1,73 @@
+{
+  "name": "commit-msg-gen",
+  "displayName": "Commit Message Generator",
+  "description": "Generate commit messages from git diff using an OpenAI-compatible API",
+  "version": "0.0.1",
+  "publisher": "yourname",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "*"
+  ],
+  "scripts": {
+    "package": "vsce package"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.generateCommitMessage",
+        "title": "Generate Commit Message",
+        "icon": {
+          "light": "images/light-magic.svg",
+          "dark": "images/dark-magic.svg"
+        }
+      }
+    ],
+    "configuration": {
+      "title": "Commit Message Generator",
+      "properties": {
+        "commitMsgGen.apiProvider": {
+          "type": "string",
+          "enum": [
+            "OpenAI Compatible"
+          ],
+          "default": "OpenAI Compatible",
+          "description": "The API provider to use."
+        },
+        "commitMsgGen.baseUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Base URL for API calls."
+        },
+        "commitMsgGen.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API key for the provider."
+        },
+        "commitMsgGen.model": {
+          "type": "string",
+          "default": "gpt-4.1",
+          "description": "Model to use."
+        },
+        "commitMsgGen.maxTokens": {
+          "type": "number",
+          "default": 200,
+          "description": "Max output tokens for commit message."
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7",
+    "vscode": "^1.1.37"
+  },
+  "devDependencies": {
+    "vsce": "^2.15.0"
+  }
+}
